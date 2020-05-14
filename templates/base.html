@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="shorcut icon" type="image/png" href="{{ url_for('transfer_images', filename='favicon.png') }}">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}{% endblock %}
+    </body>
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+</html>

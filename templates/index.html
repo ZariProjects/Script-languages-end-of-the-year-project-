@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>What Is This?</title>
+{% endblock %}
+
+{% block body %}
+    <header id="main-header">
+        <img id="logo" src="{{ url_for('transfer_images', filename='logo2.png') }}">
+    </header>
+    <form action="/upload_and_predict_image" method="POST" enctype="multipart/form-data">
+        <div class="form_group">
+            <div class="custom file">
+                <input type="file" class="custom_file_input" name="image" id="image">
+                <label for="image">Choose A Photo</label>
+            </div>
+        </div>
+        <button id="predict"type="submit">
+            What is this?
+        </button>
+    </form>
+    
+    {% if error_statement != "" %}
+        <p id="error_textspace">{{ error_statement }}</p>
+    {% endif %}
+    
+    {% if prediction != "" %}
+        {% if dog_prediction > cat_prediction %}
+            <h3 id="dog_p">This is a <img id="dog_pic" src="{{url_for('transfer_images', filename='dog_emblem.png')}}">.</h3>
+        {% endif %}
+        
+        {% if cat_prediction > dog_prediction %}
+            <h3 id="cat_p">This is a <img id="cat_pic" src="{{ url_for('transfer_images', filename='cat_emblem2.png') }}">.</h3>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <!--<img id="footer" src="{{ url_for('transfer_images', filename='footer1.png') }}"> -->
+{% endblock %}
