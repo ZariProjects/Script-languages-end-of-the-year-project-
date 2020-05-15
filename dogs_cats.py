@@ -41,7 +41,7 @@ model = Model(inputs=vgg16_model.input, outputs=output_layer)
 
 def get_model():
     global model
-    model = load_model("D:\\zaridev\\web projects\\flask apps\\dogs_cats\\dogs_cats_prediction_model.h5")
+    model = load_model("dogs_cats_prediction_model.h5")
     model.compile(
         Adam(
             learning_rate=0.001,
